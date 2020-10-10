@@ -3,6 +3,7 @@ sudo:
 
 services:
   - docker
+  - postgresql
 
 language: java
 jdk: oraclejdk15
