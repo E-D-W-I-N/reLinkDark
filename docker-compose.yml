@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:latest
+    env_file:
+      - dbconfig.env
+    restart: always
+
+  relink:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - dbconnect.env
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - db

@@ -1,0 +1,24 @@
+sudo:
+  required
+
+services:
+  - docker
+
+language: java
+jdk: oraclejdk15
+
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::7}
+
+after_success:
+  - docker login -u $D_USER -p $D_PASS
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+  - export NAME=edwin/relink
+  - docker build -t $NAME:$COMMIT .
+  - docker tag $NAME:$COMMIT $NAME:$TAG
+  - docker push $NAME
+
+notifications:
+  email:
+    - scvaersoft503@gmail.com

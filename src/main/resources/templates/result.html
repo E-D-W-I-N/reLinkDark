@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Your link is smlr now!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body style="padding: 50px; vertical-align: middle">
+<div class="text-center">
+    <div class="jumbotron">
+        <h1 class="text-center">Ваша ссылка уменьшена!</h1>
+        <p class="text-center">Сперва она была такой - <a th:href="${link}" th:text="${link}"></a></p>
+        <p class="text-center">А наш сервис превратил ее в такую - <a th:href="${keyed}" th:text="${keyed}"></a></p>
+        <div class="container-fluid">
+            <div class="input-group text-center">
+                <div class="input-group-prepend">
+                    <button id="copyBtn" class="btn btn-outline-secondary" type="button">Скопировать</button>
+                </div>
+                <input type="text" id="link" class="form-control" th:autofocus="${true}" th:value="${keyed}"
+                       aria-describedby="copyBtn">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert alert-primary container-sm" role="alert" style="display: none">
+    Ваша <a th:href="${keyed}" class="alert-link">ссылка</a> скопирована.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#copyBtn").click(function () {
+            const copyText = document.getElementById("link");
+
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+
+            document.execCommand("copy");
+            $('.alert').show()
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 package com.edwin.relink.controller
 
-import com.edwin.relink.serice.KeyMapperService
+import com.edwin.relink.service.KeyMapperService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.PathVariable
@@ -13,15 +13,10 @@ class RedirectController {
     @Autowired
     lateinit var service: KeyMapperService
 
-    @RequestMapping("/add/{key}/{link}")
-    fun add(@PathVariable("key") key: String, @PathVariable("link") link: String, response: HttpServletResponse) {
-        when (service.add(key, link)) {
-            is KeyMapperService.Add.Success -> response.status = 200
-            is KeyMapperService.Add.AlreadyExist -> response.status = 302
-        }
-    }
+    @RequestMapping("/")
+    fun home() = "home"
 
-    @RequestMapping("/get/{key}")
+    @RequestMapping("{key}")
     fun redirect(@PathVariable("key") key: String, response: HttpServletResponse) {
         when (val result = service.getLink(key)) {
             is KeyMapperService.Get.Link -> {

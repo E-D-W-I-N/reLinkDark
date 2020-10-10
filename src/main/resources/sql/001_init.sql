@@ -1,0 +1,11 @@
+BEGIN TRANSACTION;
+
+  DROP TABLE IF EXISTS "link" CASCADE;
+
+  CREATE TABLE "link" (
+    "id" BIGSERIAL PRIMARY KEY NOT NULL,
+    "source" TEXT NOT NULL,
+    "destination" TEXT NOT NULL
+  );
+
+  END TRANSACTION;
