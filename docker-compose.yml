@@ -3,13 +3,13 @@ services:
   db:
     image: postgres:latest
     env_file:
-      - /docker/dbconfig.env
+      - dbconfig.env
     restart: always
 
   relink:
     image: edwin503/relink:latest
     env_file:
-      - /docker/dbconnect.env
+      - dbconnect.env
     restart: always
     ports:
       - 80:80
