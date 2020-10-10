@@ -4,6 +4,8 @@ services:
     image: postgres:latest
     environment:
       - POSTGRES_PASSWORD=root
+    volumes:
+      - pg_data:/var/lib/postgresql/data
     restart: always
 
   relink:
@@ -19,3 +21,5 @@ services:
       - 80:80
     depends_on:
       - db
+volumes:
+  pg_data:
