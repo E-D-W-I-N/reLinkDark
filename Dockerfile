@@ -1,4 +1,4 @@
 FROM openjdk:15-jdk-alpine
-COPY ./target/relink.jar /app/
-CMD ["java", "-jar", "/app/relink.jar"]
+COPY ./target/relinkdark.jar /reLinkDark/
+CMD ["java", "-jar", "/reLinkDark/relinkdark.jar"]
 EXPOSE 8080

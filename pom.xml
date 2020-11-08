@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.edwin</groupId>
-    <artifactId>relink</artifactId>
+    <artifactId>relinkdark</artifactId>
     <version>0.0.1</version>
-    <name>:reLink</name>
-    <description>Simple URL shortener</description>
+    <name>:reLinkDark</name>
+    <description>Simple URL shortener (Dark version)</description>
 
     <properties>
         <java.version>14</java.version>
@@ -73,7 +73,7 @@
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
-        <finalName>relink</finalName>
+        <finalName>relinkdark</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
