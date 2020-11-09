@@ -1,3 +1,6 @@
+before_script:
+  - psql -c 'create database relinkdark;' -U postgres
+
 services:
   - docker
   - postgresql
