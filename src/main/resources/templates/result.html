@@ -8,16 +8,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body style="padding: 50px; vertical-align: middle">
+<body style="padding: 50px; vertical-align: middle; background-color: black">
 <div class="text-center">
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color: darkslategray; color: darksalmon">
         <h1 class="text-center">Ваша ссылка уменьшена!</h1>
         <p class="text-center">Сперва она была такой - <a th:href="${link}" th:text="${link}"></a></p>
         <p class="text-center">А наш сервис превратил ее в такую - <a th:href="${keyed}" th:text="${keyed}"></a></p>
         <div class="container-fluid">
             <div class="input-group text-center">
                 <div class="input-group-prepend">
-                    <button id="copyBtn" class="btn btn-outline-secondary" type="button">Скопировать</button>
+                    <button id="copyBtn" class="btn btn-outline-secondary" type="button"
+                            style="background-color: darksalmon">Скопировать</button>
                 </div>
                 <input type="text" id="link" class="form-control" th:autofocus="${true}" th:value="${keyed}"
                        aria-describedby="copyBtn">
